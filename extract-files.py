@@ -31,6 +31,8 @@ lib_fixups: lib_fixups_user_type = {
 blob_fixups: blob_fixups_user_type = {
     'vendor/lib/miwatermark.so': blob_fixup()
         .add_needed('libpiex_shim.so'),
+    'vendor/lib/hw/camera.trinket.so': blob_fixup()
+        .replace_needed('android.frameworks.displayservice@1.0.so', 'lineage.frameworks.displayservice@1.0.so'),
     'vendor/lib64/libvendor.goodix.hardware.interfaces.biometrics.fingerprint@2.1.so': blob_fixup()
         .remove_needed('libhidlbase.so')
         .replace_needed('libhidltransport.so', 'libhidlbase-v32.so'),
